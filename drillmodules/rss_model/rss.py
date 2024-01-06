@@ -135,7 +135,7 @@ class RSSDataGenerator:
         formation_aggressiveness=[(0, 0.6)],
         CCS=[(0, 30000)],
         bit_aggressiveness_factor=1.2,
-        initial_WOB=list(zip(range(0, 1000), range(50000, 52000, 2))),
+        initial_WOB=list(zip(range(0, 1000), range(50000, 52000, 2))), # Not used!
         RPM=130,
         Eff=0.35,
         D=12.25,
@@ -150,7 +150,16 @@ class RSSDataGenerator:
         self.stations = stations
         self.formation_aggressiveness_data = formation_aggressiveness
         self.bit_aggressiveness_factor = bit_aggressiveness_factor
-        self.pre_WOB = initial_WOB
+        
+        well_depth = stations[-1][-1]
+        delta_station = stations[1][-1] - stations[0][-1]
+        num_steps = well_depth // delta_station
+        
+        start_WOB = 1000
+        end_WOB = 80000
+        delta_WOB = (end_WOB - start_WOB) / num_steps
+        self.pre_WOB = list(zip(range(0, well_depth, delta_station), [start_WOB + i*delta_WOB for i in range(num_steps)]))
+
         self.RPM_data = RPM
         self.Eff = Eff
         self.D = D
