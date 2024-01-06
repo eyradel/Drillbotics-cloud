@@ -349,7 +349,7 @@ def selected_drill_pipes(
     buoyancy_factor=0.8,
 ):
     drill_strings_data = pd.read_excel(
-        "drillmodules\drill_string\drill_pipes_api_sheet.xlsx"
+        r"drill_pipes_api_sheet.xlsx"
     )
     drill_strings_data = drill_strings_data[
         [
