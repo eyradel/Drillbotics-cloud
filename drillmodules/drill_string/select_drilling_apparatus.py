@@ -349,8 +349,9 @@ def selected_drill_pipes(
     external_fluid_pressure=4790,
     buoyancy_factor=0.8,
 ):
+    drill_strings_api_sheet_path = os.path.dirname(os.path.realpath(__file__))
     drill_strings_data = pd.read_excel(
-        r"drill_pipes_api_sheet.xlsx"
+        os.path.join(drill_collars_api_sheet_path, "drill_pipes_api_sheet.xlsx")
     )
     drill_strings_data = drill_strings_data[
         [
