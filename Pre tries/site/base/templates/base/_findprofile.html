@@ -1,0 +1,184 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="">
+    <h1 class="p-2">Find Profile</h1>    
+    <div class="d-md-flex">
+        <div class="col-md-9" style="min-height: 60vh;">
+            {{ plot|safe }}
+        </div>
+    
+        <div class="shadow bg-light p-3 col-md-3" style="height: fit-content;">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-v-tab" data-bs-toggle="tab" data-bs-target="#nav-v" type="button" role="tab" aria-controls="nav-v" aria-selected="true">V profile</button>
+                    <button class="nav-link" id="nav-s-tab" data-bs-toggle="tab" data-bs-target="#nav-s" type="button" role="tab" aria-controls="nav-s" aria-selected="false">S profile</button>
+                    <button class="nav-link" id="nav-j-tab" data-bs-toggle="tab" data-bs-target="#nav-j" type="button" role="tab" aria-controls="nav-j" aria-selected="false">J Profile</button>
+                    <button class="nav-link" id="nav-hsc-tab" data-bs-toggle="tab" data-bs-target="#nav-hsc" type="button" role="tab" aria-controls="nav-hsc" aria-selected="false">HSC Profile</button>
+                    <button class="nav-link" id="nav-hds-tab" data-bs-toggle="tab" data-bs-target="#nav-hds" type="button" role="tab" aria-controls="nav-hds" aria-selected="false">HDS</button>            
+                </div>
+            </nav>
+    
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-v" role="tabpanel" aria-labelledby="nav-v-tab" tabindex="0">
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div class="my-2">                            
+                            <div class="form-group">
+                                <label for="cells_no">Cells Number</label>
+                                <input type="number" class="form-control" name="cells_no" id="cells_no">
+                            </div>                            
+                            <div class="form-group">
+                                <label for="set_start">Set start</label>
+                                <input type="text" class="form-control" name="set_start" id="set_start">
+                            </div>
+                        </div>
+
+                        <div class="form-group text-right">
+                            <input type="hidden" name="profile" value="v">
+                            <button type="submit" class="btn btn-outline-primary px-4" name="submit">Plot</button>
+                        </div>
+                    </form>
+                </div>     
+                <div class="tab-pane fade show" id="nav-s" role="tabpanel" aria-labelledby="nav-s-tab" tabindex="0">
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div class="my-2">                                                
+                            <div class="form-group">
+                                <label for="kop">KOP</label>
+                                <input type="number" class="form-control" name="kop" id="kop">
+                            </div>
+                            <div class="form-group">
+                                <label for="eob">EOB</label>
+                                <input type="number" class="form-control" name="eob" id="eob">
+                            </div>
+                            <div class="form-group">
+                                <label for="build_angle">Build angle</label>
+                                <input type="number" class="form-control" name="build_angle" id="build_angle">
+                            </div>
+                            <div class="form-group">
+                                <label for="sod">SOD</label>
+                                <input type="number" class="form-control" name="sod" id="sod">
+                            </div>
+                            <div class="form-group">
+                                <label for="eod">EOD</label>
+                                <input type="number" class="form-control" name="eod" id="eod">
+                            </div>
+                            <div class="form-group">
+                                <label for="cells_no">Cells Number</label>
+                                <input type="number" class="form-control" name="cells_no" id="cells_no">
+                            </div>
+                            <div class="form-group">
+                                <label for="set_start">Set start</label>
+                                <input type="text" class="form-control" name="set_start" id="set_start">
+                            </div>
+                        </div>
+                
+                        <div class="form-group text-right">
+                            <input type="hidden" name="profile" value="s">
+                            <button type="submit" class="btn btn-outline-primary px-4" name="submit">Plot</button>
+                        </div>
+                    </form>
+                </div>        
+                <div class="tab-pane fade show" id="nav-j" role="tabpanel" aria-labelledby="nav-j-tab" tabindex="0">
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div class="my-2">                                                
+                            <div class="form-group">
+                                <label for="kop">KOP</label>
+                                <input type="number" class="form-control" name="kop" id="kop">
+                            </div>
+                            <div class="form-group">
+                                <label for="eob">EOB</label>
+                                <input type="number" class="form-control" name="eob" id="eob">
+                            </div>
+                            <div class="form-group">
+                                <label for="build_angle">Build angle</label>
+                                <input type="number" class="form-control" name="build_angle" id="build_angle">
+                            </div>                    
+                            <div class="form-group">
+                                <label for="cells_no">Cells Number</label>
+                                <input type="number" class="form-control" name="cells_no" id="cells_no">
+                            </div>
+                            <div class="form-group">
+                                <label for="set_start">Set start</label>
+                                <input type="text" class="form-control" name="set_start" id="set_start">
+                            </div>
+                        </div>
+                
+                        <div class="form-group text-right">
+                            <input type="hidden" name="profile" value="j">
+                            <button type="submit" class="btn btn-outline-primary px-4" name="submit">Plot</button>
+                        </div>                
+                    </form>
+                </div>
+                <div class="tab-pane fade show" id="nav-hsc" role="tabpanel" aria-labelledby="nav-hsc-tab" tabindex="0">
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div class="my-2">
+                            <div class="form-group">
+                                <label for="kop">KOP</label>
+                                <input type="number" class="form-control" name="kop" id="kop">
+                            </div>
+                            <div class="form-group">
+                                <label for="eob">EOB</label>
+                                <input type="number" class="form-control" name="eob" id="eob">
+                            </div>
+                            <div class="form-group">
+                                <label for="build_angle">Build angle</label>
+                                <input type="number" class="form-control" name="build_angle" id="build_angle">
+                            </div>                    
+                            <div class="form-group">
+                                <label for="cells_no">Cells Number</label>
+                                <input type="number" class="form-control" name="cells_no" id="cells_no">
+                            </div>
+                            <div class="form-group">
+                                <label for="set_start">Set start</label>
+                                <input type="text" class="form-control" name="set_start" id="set_start">
+                            </div>
+                        </div>
+                
+                        <div class="form-group text-right">
+                            <input type="hidden" name="profile" value="hsc">
+                            <button type="submit" class="btn btn-outline-primary px-4" name="submit">Plot</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade show" id="nav-hds" role="tabpanel" aria-labelledby="nav-hds-tab" tabindex="0">
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div class="my-2">
+                            <div class="form-group">
+                                <label for="kop">KOP</label>
+                                <input type="number" class="form-control" name="kop" id="kop">
+                            </div>
+                            <div class="form-group">
+                                <label for="eob">EOB</label>
+                                <input type="number" class="form-control" name="eob" id="eob">
+                            </div>
+                            <div class="form-group">
+                                <label for="build_angle">Build angle</label>
+                                <input type="number" class="form-control" name="build_angle" id="build_angle">
+                            </div>                    
+                            <div class="form-group">
+                                <label for="cells_no">Cells Number</label>
+                                <input type="number" class="form-control" name="cells_no" id="cells_no">
+                            </div>
+                            <div class="form-group">
+                                <label for="set_start">Set start</label>
+                                <input type="text" class="form-control" name="set_start" id="set_start">
+                            </div>
+                        </div>
+                
+                        <div class="form-group text-right">
+                            <input type="hidden" name="profile" value="hds">
+                            <button type="submit" class="btn btn-outline-primary px-4" name="submit">Plot</button>
+                        </div>                
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
