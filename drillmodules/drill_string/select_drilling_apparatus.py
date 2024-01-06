@@ -4,6 +4,7 @@ Select Drill string model
 This model is used in selecting the best drill string based
 on drill data or well plan data
 """
+import os
 import pandas as pd
 import numpy as np
 
@@ -349,7 +350,7 @@ def selected_drill_pipes(
     buoyancy_factor=0.8,
 ):
     drill_strings_data = pd.read_excel(
-        "drillmodules\drill_string\drill_pipes_api_sheet.xlsx"
+        r"drill_pipes_api_sheet.xlsx"
     )
     drill_strings_data = drill_strings_data[
         [
@@ -402,8 +403,9 @@ def selected_drill_collars(
     outer_mud_weight=7.3,
     hole_diameter=10,
 ):
+    drill_collars_api_sheet_path = os.path.dirname(os.path.realpath(__file__))
     drill_collars_data = pd.read_excel(
-        "drillmodules\drill_string\drill_collars_api_sheet.xlsx"
+        os.path.join(drill_collars_api_sheet_path, "drill_collars_api_sheet.xlsx")
     )
     drill_collars_data = drill_collars_data[
         [
