@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="">
+    <h1 class="p-2">Find Profile</h1>    
+    <div class="d-md-flex">
+        <div class="col-md-9" style="min-height: 60vh;">
+            {{ plot|safe }}
+        </div>
+    
+        <div class="shadow bg-light p-3 col-md-3" style="height: fit-content; border-radius: 10px;">
+            <h2>Reset Parameters</h2>
+            <form method="POST" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="my-2">
+                    <div class="form-group my-3">
+                        <label for="set_start">Set start</label>
+                        <input type="text" class="form-control" value={{start}} name="set_start" id="set_start">
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="set_start">TVD of KOP</label>
+                        <input type="number" class="form-control" value={{tvd_kop}} name="tvd_kop" id="tvd_kop">
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="set_start">Upload Targets as csv or excel</label>
+                        <input type="file" class="form-control" name="targets_file" id="targets_file">
+                    </div>                    
+                </div>
+
+                <div class="form-group">                    
+                    <button type="submit" class="btn btn-primary px-4" name="done">Use this!</button>
+                    <button type="submit" class="btn btn-outline-primary px-4" name="replot">Plot</button>
+                </div>                
+            </form>                
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
