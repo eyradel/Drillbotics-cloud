@@ -152,13 +152,12 @@ class RSSDataGenerator:
         self.bit_aggressiveness_factor = bit_aggressiveness_factor
         
         well_depth = stations[-1][-1]
-        delta_station = stations[1][-1] - stations[0][-1]
-        num_steps = well_depth // delta_station
-        
+        delta_station = int(stations[1][-1] - stations[0][-1])
+        num_steps = int(well_depth // delta_station)
         start_WOB = 1000
         end_WOB = 80000
         delta_WOB = (end_WOB - start_WOB) / num_steps
-        self.pre_WOB = list(zip(range(0, well_depth, delta_station), [start_WOB + i*delta_WOB for i in range(num_steps)]))
+        self.pre_WOB = list(zip(range(0, delta_station, [start_WOB + i*delta_WOB for i in range(num_steps)]))
 
         self.RPM_data = RPM
         self.Eff = Eff
