@@ -154,8 +154,8 @@ class RSSDataGenerator:
         well_depth = int(stations[-1][-1])
         delta_station = int(stations[1][-1] - stations[0][-1])
         num_steps = int(well_depth // delta_station)
-        start_WOB = 1000
-        end_WOB = 80000
+        start_WOB = 2000
+        end_WOB = 60000
         delta_WOB = (end_WOB - start_WOB) / num_steps
         self.pre_WOB = list(zip(range(0, well_depth, delta_station), [start_WOB + i*delta_WOB for i in range(num_steps)]))
                             
